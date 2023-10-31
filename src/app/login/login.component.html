@@ -1,38 +1,62 @@
 <ion-content [fullscreen]="true">
 
   <div class="container">
-   <h1 id="txtBienvenida"> Bienvenido a EcoSense 👋🌎</h1>
+    <h1 id="txtBienvenida"> Bienvenido a EcoSense 👋🌎</h1>
   </div>
- 
+
   <div id="formulario">
-   <form>
-     <ion-item lines="full">
-       <ion-icon aria-hidden="true" name="person-sharp" slot="end"></ion-icon>
-       <ion-label position="floating">Email</ion-label>
-       <ion-input type="email" required></ion-input>
-     </ion-item>
-     <ion-item lines="full">
-       <ion-icon aria-hidden="true" name="lock-closed-sharp" slot="end"></ion-icon>
-       <ion-label position="floating">Contraseña</ion-label>
-       <ion-input type="password" required></ion-input>
-     </ion-item>
-     <ion-row>
-       <ion-col>
-         
-         <ion-button type="submit" color="success" expand="block" shape="round" size="large">Iniciar sesión</ion-button>
-       </ion-col>
-     </ion-row>
-   </form>
+    <form [formGroup]="loginForm">
+
+      <ion-item lines="full">
+        <ion-icon aria-hidden="true" name="person-sharp" slot="end"></ion-icon>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email" required maxLength="41"></ion-input>
+      </ion-item>
+<br>
+      <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+        <ion-text class="error-ms" color="danger">Campo requerido</ion-text>
+      </div>
+      <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+        <ion-text class="error-ms" color="danger">Ingresa un email válido</ion-text>
+      </div>
+      <div *ngIf="loginForm.get('email')?.hasError('maxlength') && loginForm.get('email')?.touched">
+        <ion-text class="error-ms" color="danger">El máximo de caracteres es 40</ion-text>
+      </div>
+
+      <ion-item lines="full">
+        <ion-icon aria-hidden="true" name="lock-closed-sharp" slot="end"></ion-icon>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+      <br>
+      <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+        <ion-text class="error-ms" color="danger">Campo requerido</ion-text>
+      </div>
+      <div *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+        <ion-text class="error-ms" color="danger">Ingresa una contraseña válida</ion-text>
+      </div>
+      <div *ngIf="loginForm.get('password')?.hasError('maxlength') && loginForm.get('password')?.touched">
+        <ion-text class="error-ms" color="danger">Ingresa una contraseña válida</ion-text>
+      </div>
+     
+      <ion-row>
+        <ion-col>
+
+          <ion-button type="submit" color="success" expand="block" shape="round" size="large">Iniciar
+            sesión</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
   </div>
   <div id="divisor">
-    <span >o</span>
+    <span>o</span>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="success" expand="block" shape="round" size="large">Iniciar sesión con Google</ion-button>
+        <ion-button type="submit" color="success" expand="block" shape="round" size="large">Iniciar sesión con
+          Google</ion-button>
       </ion-col>
     </ion-row>
   </div>
-   
-  
- </ion-content>
-   
+
+
+</ion-content>
