@@ -1,0 +1,50 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+:colors {
+    --color-primario: #B5ECB1;
+    --color-header: #A3D99F;
+    --color-secundario: #91C78E;
+    --color-terciario: #7FB47C;
+    --color-botones: #6DA16A;
+    --color-regular: white;
+}
+
+.boton-registro {
+    color: var(--color-primario);
+}
+
+
+header {
+    background-color: var(--color-secundario);
+    color: var(--color-regular);
+}
+
+footer {
+    background-color: var(--color-secundario);
+    color: var(--color-regular);
+}

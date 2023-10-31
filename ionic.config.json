@@ -1,0 +1,7 @@
+{
+  "name": "codeology",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

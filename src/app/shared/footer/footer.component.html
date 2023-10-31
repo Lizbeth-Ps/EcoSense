@@ -1,0 +1,30 @@
+
+
+<ion-content>
+  <ion-footer [translucent]="true" class="custom-footer">
+    <ion-toolbar color="footer">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="auto">
+            <ion-button fill="clear" (click)="redirectToFacebook()">
+              <ion-icon name="logo-facebook" style="color: black;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button fill="clear" (click)="redirectToInstagram()">
+              <ion-icon name="logo-instagram" style="color: black;"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button fill="clear" (click)="redirectToYoutube()">
+              <ion-icon name="logo-youtube" style="color: black;"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  <router-outlet></router-outlet>
+</ion-content>
+
+<!-- <app-footer></app-footer> Agrega el componente de pie de página -->
