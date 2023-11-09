@@ -12,13 +12,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class LoginComponent implements OnInit {
 
-  
-/*
-loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email,Validators.maxLength(40)]),
-    password: new FormControl('', [Validators.required,Validators.minLength(8),Validators.maxLength(20)])
-  })
-*/
   user = {} as User;
   loginForm: FormGroup;
   
@@ -50,7 +43,12 @@ loginForm = new FormGroup({
         const formData = this.loginForm.value;
         await this.afAuth.signInWithEmailAndPassword(formData.email, formData.password).then(data=>{
           console.log(data);
-          this.navCtrl.navigateRoot("home")
+          if(formData.email === "admineco@gmail.com" && formData.password === "admineco23"){
+            this.navCtrl.navigateRoot("administrador");
+          }else{
+            this.navCtrl.navigateRoot("home");
+          }
+          
         });
       }catch (e:any){
         e.message = "Usuario no registrado";
