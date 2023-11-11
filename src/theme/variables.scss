@@ -5,11 +5,12 @@
 :root {
   /** MIS ESTILOS**/
   --ion-color-primary: #B5ECB1;
-  --ion-color-header: #A3D99F;
+  --ion-color-header: #7A8F73;
   --ion-color-secundario: #91C78E;
   --ion-color-terciario: #7FB47C;
   --ion-color-botones: #6DA16A;
   --ion-color-regular: white;
+  --ion-color-texto: #5aa9c2;
 
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -99,7 +100,8 @@
   --ion-color-footer-tint: #acdda9;
 
   /** header **/
-  --ion-color-header: #b5ecb1;
+  --ion-color-header: #6da16a;
+  //--ion-color-header: ##7A8F73;
   --ion-color-header-rgb: 181, 236, 177;
   --ion-color-header-contrast: #000000;
   --ion-color-header-contrast-rgb: 0, 0, 0;

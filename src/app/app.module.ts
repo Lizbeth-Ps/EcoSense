@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 //import { firebaseConfig } from '../environments/firebaseconfig';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { ReportesComponent } from './reportes/reportes.component';
 
 
 
@@ -19,13 +20,14 @@ import { environment } from 'src/environments/environment';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ReportesComponent],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     AngularFireModule.initializeApp(environment.fIREBASE_CONFIG),
     AppRoutingModule, 
     RegistroPageModule,
     HttpClientModule,
+    
     
    
   ],

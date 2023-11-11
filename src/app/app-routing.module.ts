@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ReportesComponent } from './reportes/reportes.component';
+import { SeguimientoComponent } from './reportes/seguimiento/seguimiento.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent
+  }, 
+  {
+    path: 'reportes/seguimiento',
+    component: SeguimientoComponent
   },
 
 
