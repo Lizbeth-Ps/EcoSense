@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegistroPageModule } from './registro/registro.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 //import { firebaseConfig } from '../environments/firebaseconfig';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
@@ -29,6 +29,7 @@ import { environment } from 'src/environments/environment';
     
    
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
