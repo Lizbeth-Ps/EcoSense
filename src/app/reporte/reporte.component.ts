@@ -3,8 +3,9 @@ import { PhotoService } from '../services/photo.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { GoogleMap } from '@capacitor/google-maps';
 import { environment } from 'src/environments/environment';
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { FirebaseService } from '../firebase.service';
 //import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native';
 
 @Component({
@@ -49,10 +50,53 @@ export class ReporteComponent implements OnInit {
     }
   }
 
-  guardar() {
-    // Aquí puedes usar this.formData.nombre y this.formData.correo para acceder a los datos ingresados
+    async guardar() {
 
-    // Puedes enviar los datos a un servicio, guardar en una base de datos, etc.
+
+    const reporte: Reporte = {
+      titulo: this.formData.titulo,
+      lugar: this.formData.lugar,
+      descripcion: this.formData.descripcion,
+      longitude: this.ubicacion.longitude,
+      latitude: this.ubicacion.latitud,
+      estatus:0,
+      imagenes: []
+    };
+
+    interface Reporte {
+      titulo: String,
+      lugar: String,
+      descripcion: String,
+      longitude: Number,
+      latitude: Number,
+      estatus:Number;
+      imagenes: string[]; // Aquí asumo que las imágenes son cadenas (strings)
+      // ... otras propiedades del objeto Reporte si las tienes ...
+    }
+
+    reporte.imagenes = this.fotos;
+
+    this.reporteDatos = reporte;
+
+    console.log("Este es el final", this.reporteDatos)
+
+
+    this.fotos = [];
+    this.formData.descripcion = "";
+    this.formData.lugar = "";
+    this.formData.titulo = "";
+
+    await this.firebaseService.registrarReporte(reporte);
+
+    this.showToast("Registro guardado correctamente") 
+
+  }
+
+    showToast(message: string) {
+    this.toastCtrl.create({
+      message: message,
+      duration: 4000
+    }).then(toastData => toastData.present());
   }
 
   async ubicacionUsuario() {
@@ -72,7 +116,8 @@ export class ReporteComponent implements OnInit {
       key: environment.mapsKey
      });
   }*/
-  constructor(public photoService: PhotoService,platform: Platform) {
+  constructor(public photoService: PhotoService,platform: Platform, private firebaseService: FirebaseService,
+    private toastCtrl: ToastController) {
     this.platform = platform;
   }
 
@@ -123,13 +168,6 @@ export class ReporteComponent implements OnInit {
     
     if (this.platform.is('hybrid')) {
       this.photoService.addNewToGallery();
-      this.photoService.loadSaved().then(valor =>{
-        this.fotosService = valor;
-        this.fotos.push(this.fotosService);
-        console.log("Esta son las fotos Then");
-        console.log(this.fotosService);
-
-      });
       
     }else{
       try {
