@@ -23,7 +23,14 @@ const routes: Routes = [
     path: 'reporte',
     loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
   },
-
+  {
+    path: 'eventos',
+    loadChildren: () => import('./admin-e/admin.module').then( m => m.AdminModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorModule)
+  }
 
 ];
 

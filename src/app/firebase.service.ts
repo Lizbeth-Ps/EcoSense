@@ -17,6 +17,10 @@ export class FirebaseService {
     return this.firestore.collection('reporte').add(data);
   }
 
+  registrarEvento(data: any) {
+    return this.firestore.collection('evento').add(data);
+  }
+
   getItems(): Observable<any[]> {
     return this.firestore.collection('reporte').valueChanges();
   }
