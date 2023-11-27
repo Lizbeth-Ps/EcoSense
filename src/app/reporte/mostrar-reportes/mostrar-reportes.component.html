@@ -1,0 +1,23 @@
+<ion-content class="ion-padding" color="title">
+  <ion-card *ngFor="let reporte of reportes">
+      
+  <ion-card-header>
+    <ion-card-title>{{reporte.titulo}}</ion-card-title>
+    <ion-card-subtitle>{{reporte.lugar}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{reporte.descripcion}}</p>
+    <ng-container *ngFor="let imagenUrl of reporte.imagenes">
+      <ion-card>
+        <img [src]="imagenUrl" alt="Imagen">
+      </ion-card>
+    </ng-container>
+    <!-- <div class="map-container">
+      <capacitor-google-maps class="map" #map></capacitor-google-maps>
+    </div> -->
+
+  </ion-card-content>
+</ion-card>
+</ion-content>
+

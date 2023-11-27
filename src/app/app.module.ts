@@ -15,10 +15,6 @@ import { environment } from 'src/environments/environment';
 import { ReportesComponent } from './reportes/reportes.component';
 
 
-
-
-
-
 @NgModule({
   declarations: [AppComponent, ReportesComponent],
   imports: [BrowserModule, 
