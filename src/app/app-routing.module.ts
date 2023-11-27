@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-<<<<<<< Updated upstream
-import { ReportesComponent } from './reportes/reportes.component';
-import { SeguimientoComponent } from './reportes/seguimiento/seguimiento.component';
-=======
 import { MostrarReportesComponent } from './reporte/mostrar-reportes/mostrar-reportes.component';
 import { SeguimientoComponent } from './reporte/seguimiento/seguimiento.component';
->>>>>>> Stashed changes
 
 const routes: Routes = [
   {
@@ -15,11 +10,8 @@ const routes: Routes = [
   },
   {
     path: '',
-<<<<<<< Updated upstream
+
     redirectTo: 'home',
-=======
-    redirectTo: 'crearReporte',
->>>>>>> Stashed changes
     pathMatch: 'full'
   },
   {
@@ -27,21 +19,13 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
   },
   {
-<<<<<<< Updated upstream
-    path: 'reportes',
-    component: ReportesComponent
-  }, 
-  {
-    path: 'reportes/seguimiento',
-    component: SeguimientoComponent
-=======
     path: 'crearReporte',
     loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
->>>>>>> Stashed changes
+
   },
   {
     path: 'reportes',
@@ -51,8 +35,18 @@ const routes: Routes = [
     path: 'reportes/seguimiento',
     component: SeguimientoComponent
   },
-  
-
+  {
+    path: 'reporte',
+    loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'eventos',
+    loadChildren: () => import('./admin-e/admin.module').then( m => m.AdminModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorModule)
+  }
 
 ];
 

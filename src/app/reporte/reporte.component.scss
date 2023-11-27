@@ -1,0 +1,43 @@
+// En tu archivo .scss del componente
+.custom-form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    //7background-color: red;
+  }
+  
+  
+  .mensaje-exito {
+    background-color: #4caf50; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    margin-top: 10px; /* Espaciado superior */
+  }
+  
+  .input-field {
+    margin-bottom: 15px;
+  }
+  
+  .map-container {
+    margin-top: 20px;
+    height: 300px; /* Ajusta la altura del mapa según tus necesidades */
+  }
+  
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  capacitor-google-maps {
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+  }
+  
+    ion-content{
+      --background: none !important;
+    }
