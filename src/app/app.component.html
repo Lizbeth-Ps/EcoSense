@@ -1,5 +1,45 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="ion-header">
+      <ion-title >Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-row class="apartados"> 
+      <ion-icon name="document-text-outline"></ion-icon>
+      <a href="">Donar</a>
+    </ion-row>
+    <ion-row class="apartados"> 
+      <ion-icon name="document-text-outline"></ion-icon>
+      <a href="">Reportes</a>
+    </ion-row>
+    <ion-row class="apartados">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <a href="">Eventos</a>
+    </ion-row>
 
-  
-</ion-app>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="ion-header">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-row>
+        <ion-col size="6">
+          <img src="assets/img/logo_size_sin_fondo.png" alt="">
+          <!--<img src="assets/img/logo_2.png" alt="">-->
+        </ion-col>
+        <ion-col size="6">
+          <a href="" class="derecha">Iniciar sesión</a>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">   
+    <router-outlet></router-outlet>
+  </ion-content>
+</div> 
+

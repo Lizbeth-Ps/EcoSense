@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MostrarReportesComponent } from './reporte/mostrar-reportes/mostrar-reportes.component';
+import { SeguimientoComponent } from './reporte/seguimiento/seguimiento.component';
 
 const routes: Routes = [
   {
@@ -8,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
+
     redirectTo: 'home',
     pathMatch: 'full'
   },
@@ -15,15 +18,39 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
-  {
-    path: 'registro',
+  {path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },  {
-    path: 'donaciones',
-    loadChildren: () => import('./donaciones/donaciones.module').then( m => m.DonacionesPageModule)
+},
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
   },
+  {
+    path: 'crearReporte',
+    loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
 
-
+  },
+  {
+    path: 'reportes',
+    component: MostrarReportesComponent
+  }, 
+  {
+    path: 'reportes/seguimiento',
+    component: SeguimientoComponent
+  },
+  {
+    path: 'reporte',
+    loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'eventos',
+    loadChildren: () => import('./admin-e/admin.module').then( m => m.AdminModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorModule)
+  }
+  
 
 ];
 
