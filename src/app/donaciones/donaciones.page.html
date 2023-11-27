@@ -1,0 +1,84 @@
+<!-- <ion-header>
+  <ion-toolbar color="ion-header">
+    <ion-title>Donaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="center-content">
+  <div class="content-container">
+   ¿
+    <ion-img src="assets/img/logo_size.jpg" class="logo"></ion-img> -->
+
+<!-- Botones para seleccionar la cantidad de donación -->
+<!-- <ion-segment [(ngModel)]="selectedAmount">
+      <ion-segment-button value="amount1">
+        $Cantidad1
+      </ion-segment-button>
+      <ion-segment-button value="amount2">
+        $Cantidad2
+      </ion-segment-button>
+      <ion-segment-button value="amount3">
+        $Cantidad3
+      </ion-segment-button>
+      <ion-segment-button value="customAmount">
+        OtraCantidad
+      </ion-segment-button>
+    </ion-segment> -->
+
+<!-- Campo personalizado para otra cantidad -->
+<!-- <ion-item *ngIf="selectedAmount === 'customAmount'">
+      <ion-label position="floating">Monto personalizado</ion-label>
+      <ion-input type="number" [(ngModel)]="customAmount"></ion-input>
+    </ion-item> -->
+
+<!-- Mensaje de error -->
+<!-- <div class="error-message" *ngIf="showErrorMessage">
+      Por favor, seleccione una cantidad.
+    </div> -->
+
+<!-- <div id="paypal-button-container"> -->
+<!-- Botones para donar con PayPal y tarjeta de crédito -->
+<!-- <ion-button class="paypal-button" color="boton" expand="full">
+        <ion-icon name="logo-paypal"></ion-icon> Donar con PayPal
+      </ion-button>
+    </div> -->
+<!-- 
+    <ion-button class="tarjeta-button" color="boton" expand="full">
+      Donar con Tarjeta de Crédito
+    </ion-button>
+  </div>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar color="ion-header">
+    <ion-title>Donaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+  </ion-grid>
+  <ion-row justify-content-center class="ion-justify-content-center">
+    <ion-col size="3">
+      <img src="assets/img/logo_size.jpg" alt="Logo" class="logo-image">
+    </ion-col>
+  </ion-row>
+  <ion-card class="welcome-card">
+    <ion-segment [(ngModel)]="selectedAmount">
+      <ion-segment-button value="amount1">
+        $100
+      </ion-segment-button>
+      <ion-segment-button value="amount2">
+        $200
+      </ion-segment-button>
+      <ion-segment-button value="amount3">
+        $500
+      </ion-segment-button>
+      <ion-segment-button value="customAmount">
+        Otra
+      </ion-segment-button>
+    </ion-segment>
+    <ion-card-content>
+      <div id="paypal-button-container"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
