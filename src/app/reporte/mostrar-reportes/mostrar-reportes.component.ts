@@ -15,6 +15,8 @@ export class MostrarReportesComponent  implements OnInit {
 
   ngOnInit() {
     this.reportesTodos();
+    //this.reportesAceptados();
+
   }
 
   reportesTodos(): void {
