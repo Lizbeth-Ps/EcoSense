@@ -27,7 +27,7 @@ export class MostrarReportesComponent  implements OnInit {
   }
 
   reportesUsuario(): void {
-    //const userId= +localStorage.getItem('idUsuario');
+    //const userId= + localStorage.getItem('email');
     this.firebaseService.getItems()
       .subscribe((data) => {
         // Filtrar los resultados por el ID del usuario
