@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { ReporteComponent } from './reporte.component'; 
 import { ReportePageRoutingModule } from './reporte-routing.modules';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MostrarReportesComponent } from './mostrar-reportes/mostrar-reportes.component';
+import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ReportePageRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [ReporteComponent]//[HomePage]
+  declarations: [ReporteComponent, MostrarReportesComponent, SeguimientoComponent]//[HomePage]
 })
 export class RegistroPageModule {}

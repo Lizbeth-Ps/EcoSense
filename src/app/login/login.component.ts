@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
           }else{
             this.navCtrl.navigateRoot("home");
           }
+          console.log(formData)
           
         });
       }catch (e:any){
