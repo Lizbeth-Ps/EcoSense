@@ -25,26 +25,4 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-:colors {
-    --color-primario: #B5ECB1;
-    --color-header: #A3D99F;
-    --color-secundario: #91C78E;
-    --color-terciario: #7FB47C;
-    --color-botones: #6DA16A;
-    --color-regular: white;
-}
 
-.boton-registro {
-    color: var(--color-primario);
-}
-
-
-header {
-    background-color: var(--color-secundario);
-    color: var(--color-regular);
-}
-
-footer {
-    background-color: var(--color-secundario);
-    color: var(--color-regular);
-}
