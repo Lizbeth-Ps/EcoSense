@@ -1,3 +1,35 @@
-<p>
-  administrador works!
-</p>
+<ion-header>
+  <ion-toolbar color="ion-header">
+    <ion-title>
+      EVENTOS 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="title">
+  <ion-card *ngFor="let reporte of reportes">
+    <ion-card-header>
+      <ion-card-title>{{reporte.titulo}}</ion-card-title>
+      <ion-card-subtitle>{{reporte.lugar}}</ion-card-subtitle>
+      <ion-card-subtitle>{{reporte.descripcion}}</ion-card-subtitle>
+      <!-- Estatus -->
+      <ion-card-subtitle [color]="reporte.estatus === 0 ? 'danger' : reporte.estatus === 1 ? 'success' : ''">
+        Estatus del Reporte: {{reporte.estatus === 0 ? 'No Aprobado' : reporte.estatus === 1 ? 'Aprobado' : ''}}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{reporte.descripcion}}</p>
+      <ng-container *ngFor="let imagenUrl of reporte.imagenes">
+        <ion-card>
+          <img [src]="imagenUrl" alt="Imagen">
+        </ion-card>
+      </ng-container>
+
+      <!-- Botón Aprobar Reporte -->
+      <ion-button  class="boton-evento" color="boton"  expand="full" *ngIf="mostrarBoton && reporte.estatus === 0" (click)="cambiarEstatusAprobado(reporte)">
+        Aprobar Reporte
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
