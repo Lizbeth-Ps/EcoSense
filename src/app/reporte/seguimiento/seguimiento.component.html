@@ -1,3 +1,38 @@
-<p>
-  seguimiento works!
-</p>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Seguimiento de reporte</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Estatus:</ion-label>
+        <ion-input [(ngModel)]="estatus"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Comentarios:</ion-label>
+        <ion-textarea [(ngModel)]="nuevoComentario"></ion-textarea>
+      </ion-item>
+      
+      <ion-button class="boton-registro" color="boton" expand="full" [disabled]="!nuevoComentario" (click)="agregarComentario()">
+        Agregar Comentario
+      </ion-button>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de comentarios -->
+<ion-card *ngFor="let comentario of comentarios">
+      
+  <ion-card-header>
+    <ion-card-subtitle>{{comentario.timestamp}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{comentario.comentario}}</p>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

@@ -43,12 +43,15 @@ export class LoginComponent implements OnInit {
         const formData = this.loginForm.value;
         await this.afAuth.signInWithEmailAndPassword(formData.email, formData.password).then(data=>{
           console.log(data);
+          this.user.email = formData.email;
+          localStorage.setItem('email', this.user.email.toString()); 
+
           if(formData.email === "admineco@gmail.com" && formData.password === "admineco23"){
-            this.navCtrl.navigateRoot("administrador");
+            this.navCtrl.navigateRoot("reportes");
           }else{
             this.navCtrl.navigateRoot("home");
           }
-          console.log(formData)
+
           
         });
       }catch (e:any){
