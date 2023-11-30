@@ -15,6 +15,8 @@ export class MostrarReportesComponent  implements OnInit {
 
   ngOnInit() {
     this.reportesTodos();
+    //this.reportesAceptados();
+
   }
 
   reportesTodos(): void {
@@ -25,7 +27,7 @@ export class MostrarReportesComponent  implements OnInit {
   }
 
   reportesUsuario(): void {
-    //const userId= +localStorage.getItem('idUsuario');
+    //const userId= + localStorage.getItem('email');
     this.firebaseService.getItems()
       .subscribe((data) => {
         // Filtrar los resultados por el ID del usuario
