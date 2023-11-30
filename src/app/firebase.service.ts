@@ -1,7 +1,7 @@
 // src/app/firebase.service.ts
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { format } from 'date-fns';
 
@@ -72,4 +72,19 @@ export class FirebaseService {
   obtenerSeguimientoDeReporte(reportId: string): Observable<any> {
     return this.firestore.collection(`seguimiento`).doc(reportId).valueChanges();
   }
+  // Método para actualizar el estatus de un reporte
+  actualizarEstatusReporte(titulo: string, nuevoEstatus: number): Promise<void> {
+    const reporteRef = this.firestore.collection('reporte', ref => ref.where('titulo', '==', titulo));
+
+    return reporteRef.get().toPromise().then((querySnapshot) => {
+      if (querySnapshot !== undefined && querySnapshot.size > 0) {
+        const docId = querySnapshot.docs[0].id;
+        return this.firestore.collection('reporte').doc(docId).update({ estatus: nuevoEstatus });
+      } else {
+        console.error('Documento no encontrado con el título:', titulo);
+        throw new Error('Documento no encontrado');
+      }
+    });
+  }
+  
 }
