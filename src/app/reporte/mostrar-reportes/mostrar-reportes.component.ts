@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/firebase.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class MostrarReportesComponent  implements OnInit {
   reportes: any[] = [];
   fotos: any[] =[];
 
-  constructor( private firebaseService: FirebaseService) { }
+  constructor( 
+    private firebaseService: FirebaseService, 
+    private router: Router) { }
+  
 
   ngOnInit() {
     this.reportesTodos();
@@ -41,6 +45,10 @@ export class MostrarReportesComponent  implements OnInit {
         // Filtrar los resultados por estatus
         this.reportes = data.filter(item => item.estatus === 1);
       });
+  }
+
+  onReportClick(reportId: string) {
+    this.router.navigate(['reportes/seguimiento', reportId]);
   }
 
   

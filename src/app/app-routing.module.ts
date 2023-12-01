@@ -35,7 +35,7 @@ const routes: Routes = [
     component: MostrarReportesComponent
   }, 
   {
-    path: 'reportes/seguimiento',
+    path: 'reportes/seguimiento/:reportId',
     component: SeguimientoComponent
   },
   {
@@ -47,7 +47,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin-e/admin.module').then( m => m.AdminModule)
   },
   {
-    path: 'admin',
+    path: 'administrador',
     loadChildren: () => import('./administrador/administrador.module').then( m => m.AdministradorModule)
   }
   
