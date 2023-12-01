@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   user = {} as User;
   loginForm: FormGroup;
+  isLoggedIn: boolean = false;
   
   constructor(
     private toastCtrl: ToastController,
@@ -29,7 +30,10 @@ export class LoginComponent implements OnInit {
 
   }
 
-  ngOnInit(){}
+  ngOnInit(){
+    //window.location.reload();
+    localStorage.setItem("SessionStatus",this.isLoggedIn.toString());
+  }
  
   async login(user:User){
 
@@ -45,16 +49,21 @@ export class LoginComponent implements OnInit {
           console.log(data);
           if(formData.email === "admineco@gmail.com" && formData.password === "admineco23"){
             this.navCtrl.navigateRoot("admin");
+
           }else{
             this.navCtrl.navigateRoot("home");
           }
           console.log(formData)
+          this.isLoggedIn = true;
+          localStorage.setItem("SessionStatus",this.isLoggedIn.toString());
           
         });
       }catch (e:any){
         e.message = "Usuario no registrado";
         let errorMessage = e.message || e.getLocalizedMessage();
-
+        this.isLoggedIn = false;
+        localStorage.setItem("SessionStatus",this.isLoggedIn.toString());
+        console.log("Status: " + this.isLoggedIn);
         this.showToast(errorMessage);
       }
 
