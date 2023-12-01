@@ -27,3 +27,25 @@ ion-button {
     color: #FFFFFF; 
     font-weight: bold; 
   }
+
+  .content-container {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .ion-content {
+    margin-bottom: 100px;  /* Ajusta esta altura según la altura de tu footer */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1{
+    //color: var( --ion-color-header);
+    text-align: center;
+}
+
+h2{
+  text-align: center;
+}

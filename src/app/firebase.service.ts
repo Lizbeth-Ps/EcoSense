@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-
+import { Observable, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -44,8 +44,8 @@ export class FirebaseService {
     return this.firestore.collection('comentarios', ref => ref.where('idReporte', '==', idReporte)).valueChanges();
   }
 
-  getUserEmail(): string | null {
-    return this.userEmail;
+  getUserByEmail(email: string) {
+    return this.firestore.collection('usuarios', ref => ref.where('correo', '==', email)).valueChanges();
   }
 
   setUserEmail(email: string | null): void {
@@ -77,5 +77,6 @@ export class FirebaseService {
     return this.firestore.collection('comentarios').add(data);
   }
 
+  
   
 }

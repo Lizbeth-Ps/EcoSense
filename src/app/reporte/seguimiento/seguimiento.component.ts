@@ -13,6 +13,7 @@ export class SeguimientoComponent implements OnInit {
   estatus: string;
   nuevoComentario: string;
   comentarios: any[] = [];
+  user: any[] = [];
   email: any;
   reporteId!: string;
 
@@ -33,12 +34,20 @@ export class SeguimientoComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerComentarios();
+    this.obtenerUsuario();
+
   }
 
   obtenerComentarios() {
       this.firebaseService.getComentarios(this.idURL).subscribe(comentarios => {
         this.comentarios = comentarios;
     });
+  }
+
+  obtenerUsuario() {
+    this.firebaseService.getUserByEmail(this.email).subscribe(user => {
+      this.user = user;
+  });
   }
 
   formatearFecha(fecha: Date): string {
