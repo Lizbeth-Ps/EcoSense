@@ -13,6 +13,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { ReportesComponent } from './reportes/reportes.component';
+import { CommunicationService } from './services/comunication.service';
+
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { ReportesComponent } from './reportes/reportes.component';
    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy
+  }, CommunicationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

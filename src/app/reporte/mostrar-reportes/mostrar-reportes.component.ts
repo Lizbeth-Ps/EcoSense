@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/firebase.service';
+import { CommunicationService } from 'src/app/services/comunication.service';
 
 @Component({
   selector: 'app-mostrar-reportes',
   templateUrl: './mostrar-reportes.component.html',
   styleUrls: ['./mostrar-reportes.component.scss'],
 })
-export class MostrarReportesComponent  implements OnInit {
-
+export class MostrarReportesComponent implements OnInit {
   reportes: any[] = [];
-  fotos: any[] =[];
 
-  constructor( 
-    private firebaseService: FirebaseService, 
-    private router: Router) { }
-  
+  constructor(
+    private firebaseService: FirebaseService,
+    private router: Router,
+    private communicationService: CommunicationService
+  ) {}
 
   ngOnInit() {
     this.reportesTodos();
-    //this.reportesAceptados();
-
   }
+
+  @Output() reporteSeleccionado = new EventEmitter<string>();
 
   reportesTodos(): void {
     this.firebaseService.getItems().subscribe((data) => {
@@ -49,9 +49,10 @@ export class MostrarReportesComponent  implements OnInit {
 
   onReportClick(reportId: string) {
     this.router.navigate(['reportes/seguimiento', reportId]);
+    console.log('Botón presionado');
+     console.log(reportId);
   }
 
-  
 
 
 }

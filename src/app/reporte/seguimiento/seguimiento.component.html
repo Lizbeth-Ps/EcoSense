@@ -7,12 +7,7 @@
 
     <ion-card-content>
       <ion-item>
-        <ion-label>Estatus:</ion-label>
-        <ion-input [(ngModel)]="estatus"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Comentarios:</ion-label>
+        <ion-label>Comentario:</ion-label>
         <ion-textarea [(ngModel)]="nuevoComentario"></ion-textarea>
       </ion-item>
       
@@ -23,11 +18,11 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Lista de comentarios -->
+   
 <ion-card *ngFor="let comentario of comentarios">
       
   <ion-card-header>
-    <ion-card-subtitle>{{comentario.timestamp}}</ion-card-subtitle>
+    <ion-card-subtitle>{{comentario.fecha}}</ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content>
@@ -35,4 +30,6 @@
   </ion-card-content>
 </ion-card>
 
-</ion-content>
+</ion-content> 
+
+

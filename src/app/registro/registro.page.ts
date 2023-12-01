@@ -71,7 +71,7 @@ export class RegistroPage {
 
         await this.firebaseService.registrarUsuario(usuario);
 
-        this.navCtrl.navigateRoot("home");
+        this.navCtrl.navigateRoot("login");
       } catch (error: any) {
         let errorMessage = error.message || "Error al registrarse";
         this.showToast(errorMessage);

@@ -47,9 +47,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('email', this.user.email.toString()); 
 
           if(formData.email === "admineco@gmail.com" && formData.password === "admineco23"){
-            this.navCtrl.navigateRoot("reportes");
+            this.navCtrl.navigateRoot("administrador");
           }else{
-            this.navCtrl.navigateRoot("home");
+            this.navCtrl.navigateRoot("reportes");
           }
 
           

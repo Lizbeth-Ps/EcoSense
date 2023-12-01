@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, QuerySnapshot } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { format } from 'date-fns';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -39,26 +40,8 @@ export class FirebaseService {
     return this.firestore.collection('reporte').valueChanges();
   }
 
-  registrarSeguimiento(data: any) {
-    return this.firestore.collection('seguimiento').add(data);
-  }
-
-  getSeguimientos(): Observable<any[]> {
-    return this.firestore.collection('seguimiento').valueChanges();
-  }
-
-  agregarComentarioAReporte(reportId: string, comentario: string) {
-    const fechaFormateada = format(new Date(), 'dd MMM yyyy'); 
-    const comentarioData = {
-      comentario,
-      timestamp: fechaFormateada,
-    };
-
-    return this.firestore.collection(`reporte/${reportId}/comentarios`).add(comentarioData);
-  }
-
-  obtenerComentariosDeReporte(reportId: string): Observable<any[]> {
-    return this.firestore.collection(`reporte/${reportId}/comentarios`).valueChanges();
+  getComentarios(idReporte: string) {
+    return this.firestore.collection('comentarios', ref => ref.where('idReporte', '==', idReporte)).valueChanges();
   }
 
   getUserEmail(): string | null {
@@ -69,9 +52,6 @@ export class FirebaseService {
     this.userEmail = email;
   }
 
-  obtenerSeguimientoDeReporte(reportId: string): Observable<any> {
-    return this.firestore.collection(`seguimiento`).doc(reportId).valueChanges();
-  }
   // Método para actualizar el estatus de un reporte
   actualizarEstatusReporte(titulo: string, nuevoEstatus: number): Promise<void> {
     const reporteRef = this.firestore.collection('reporte', ref => ref.where('titulo', '==', titulo));
@@ -86,5 +66,16 @@ export class FirebaseService {
       }
     });
   }
+
+
+
+  getReporte(id: string): Observable<any> {
+    return this.firestore.collection('reporte').doc(id).valueChanges();
+  }
+
+  addComentario(data: any) {
+    return this.firestore.collection('comentarios').add(data);
+  }
+
   
 }
