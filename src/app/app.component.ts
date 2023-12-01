@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
@@ -7,8 +7,24 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   constructor() {
     defineCustomElements(window);
+  }
+  isOn:boolean = false;
+  ngOnInit(): void {
+    console.log("isOn: ", this.isOn);
+    console.log("Status:",localStorage.getItem("SessionStatus"));
+    if(localStorage.getItem("SessionStatus") == "true"){
+      this.isOn = true;
+      console.log("Aquí lo muestra");
+    }else{
+      console.log("Aquí no lo muestra");
+      this.isOn = false;
+    }
+  }
+
+  logOut(){
+    localStorage.clear();
   }
 }

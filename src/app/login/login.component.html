@@ -42,7 +42,7 @@
       <ion-row>
         <ion-col>
 
-          <ion-button type="submit" class="boton-registro" color="boton" expand="full" (click)="login(user)">Iniciar
+          <ion-button type="submit" class="boton-registro" color="boton" expand="full" (click)="login(user)" [disabled]="!loginForm.valid">Iniciar
             sesión</ion-button>
         </ion-col>
         <p [routerLink]="['/registro']"><small >¿No tienes una cuenta? Registrate ahora</small></p>
