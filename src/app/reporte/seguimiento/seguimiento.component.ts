@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/app/firebase.service';
 import { CommunicationService } from 'src/app/services/comunication.service';
+import { ToastController, LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-seguimiento',
@@ -25,6 +26,7 @@ export class SeguimientoComponent implements OnInit {
 
   constructor(
     private firebaseService: FirebaseService,
+    private toastCtrl: ToastController,
   ) {
     this.estatus = 'Pendiente';
     this.nuevoComentario = '';
@@ -68,37 +70,21 @@ export class SeguimientoComponent implements OnInit {
       try {
         // Llama al método addComentario del servicio
         await this.firebaseService.addComentario(comentario);
-        console.log('Comentario agregado exitosamente');
+        this.showToast("Comentario agregado exitosamente") 
         
         // Limpia el campo de comentario después de agregarlo
         this.nuevoComentario = '';
       } catch (error) {
-        console.error('Error al agregar comentario:', error);
+        this.showToast("Error al agregar comentario") 
       }
     }
   }
-  // tomarReporte() {
-  //   if (this.reportId && this.email !== null) {
-  //     const seguimientoData = {
-  //       userEmail: this.email,
-  //       estatus: this.estatus,
-  //       comentarios: this.comentarios,
-  //     };
 
-  //     this.firebaseService
-  //       .registrarSeguimiento(seguimientoData)
-  //       .then((docRef) => {
-  //         console.log('Seguimiento registrado exitosamente con ID:', docRef.id);
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error al registrar el seguimiento:', error);
-  //       });
-  //   } else {
-  //     console.error('Error: userEmail es nulo o reportId no proporcionado.');
-  //   }
-  // }
-
-  
-  
+  showToast(message: string) {
+    this.toastCtrl.create({
+      message: message,
+      duration: 4000
+    }).then(toastData => toastData.present());
+  }
   
 }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { MostrarReportesComponent } from './reporte/mostrar-reportes/mostrar-reportes.component';
 import { SeguimientoComponent } from './reporte/seguimiento/seguimiento.component';
+import { DonacionesPage } from './donaciones/donaciones.page';
+import { EventosComponent } from './eventos/eventos.component';
 
 const routes: Routes = [
   {
@@ -37,11 +39,19 @@ const routes: Routes = [
     component: SeguimientoComponent
   },
   {
-    path: 'reporte',
-    loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
+    path: 'donar',
+    component: DonacionesPage
   },
   {
     path: 'eventos',
+    component: EventosComponent
+  }, 
+  {
+    path: 'crearReporte',
+    loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'crearEvento',
     loadChildren: () => import('./admin-e/admin.module').then( m => m.AdminModule)
   },
   {

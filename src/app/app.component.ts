@@ -27,4 +27,9 @@ export class AppComponent implements OnInit{
   logOut(){
     localStorage.clear();
   }
+
+  isAdministrador(): boolean {
+    const email = localStorage.getItem('email');
+    return email === "admineco@gmail.com";
+  }
 }

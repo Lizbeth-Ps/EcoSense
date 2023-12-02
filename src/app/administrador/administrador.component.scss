@@ -51,5 +51,17 @@ ion-button.boton-registro {
   color: danger;
 }
 
+ion-card-title{
+  color: var( --ion-color-header);
+}
+
+ion-button {
+  margin-top: 20px;
+  border-radius: 20px; 
+  background-color: var(--ion-color-button); 
+  color: #FFFFFF; 
+  font-weight: bold; 
+}
+
 
 

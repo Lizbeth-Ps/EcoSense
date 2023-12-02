@@ -1,71 +1,57 @@
-<ion-header>
-  <ion-toolbar color="ion-header">
-    <ion-title>
-      Registro Eventos
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-content" color="title">
+  <div class="content-container">
+    <img src="assets/img/crearEvento.png" alt="">
+    <ion-grid>
+      <ion-row justify-content-center class="ion-justify-content-center">
+        <ion-col size-md="6" size-lg="4" size-xl="3" class="ion-text-center">
 
-<ion-content class="ion-padding" color="title">
-  <ion-grid>
-    <ion-row justify-content-center class="ion-justify-content-center">
-      <ion-col size-md="6" size-lg="4" size-xl="3" class="ion-text-center">
-        <ion-row class="ion-justify-content-center">
-          <ion-col size="6">
-            <img src="assets/img/logo_size.jpg" alt="Logo" class="logo-image">
-          </ion-col>
-        </ion-row>
-        <form [formGroup]="eventosForm" (ngSubmit)="onSubmit()"
-          class="custom-form">
-          <!--  ********* NOMBRE DEL EVENTO ********* -->
-          <ion-item class="custom-input">
-            <ion-label position="floating">Nombre Evento</ion-label>
-            <ion-input formControlName="nombreEvento" type="text"></ion-input>
-          </ion-item>
-          <div
-            *ngIf="eventosForm.get('nombreEvento')?.hasError('required') && eventosForm.get('nombreEvento')?.touched">
-            <ion-text class="error-ms" color="danger">El nombre del Evento es obligatorio</ion-text>
-          </div>
-          <!--  ********* DESCRIPCION DEL EVENTO ********* -->
-          <ion-item class="custom-input">
-            <ion-label position="floating">Descripción del Evento</ion-label>
-            <ion-input formControlName="descripcion" type="text"></ion-input>
-          </ion-item>
-          <div
-            *ngIf="eventosForm.get('descripcion')?.hasError('required') && eventosForm.get('descripcion')?.touched">
-            <ion-text class="error-ms" color="danger"> La descripcion del evento es Obligatorio</ion-text>
-          </div>
+          <form [formGroup]="eventosForm" (ngSubmit)="onSubmit()" class="custom-form">
+            <!--  ********* NOMBRE DEL EVENTO ********* -->
+            <ion-item class="custom-input">
+              <ion-label position="floating">Nombre Evento</ion-label>
+              <ion-input formControlName="nombreEvento" type="text"></ion-input>
+            </ion-item>
+            <div
+              *ngIf="eventosForm.get('nombreEvento')?.hasError('required') && eventosForm.get('nombreEvento')?.touched">
+              <ion-text class="error-ms" color="danger">El nombre del Evento es obligatorio</ion-text>
+            </div>
+            <!--  ********* DESCRIPCION DEL EVENTO ********* -->
+            <ion-item class="custom-input">
+              <ion-label position="floating">Descripción del Evento</ion-label>
+              <ion-input formControlName="descripcion" type="text"></ion-input>
+            </ion-item>
+            <div
+              *ngIf="eventosForm.get('descripcion')?.hasError('required') && eventosForm.get('descripcion')?.touched">
+              <ion-text class="error-ms" color="danger"> La descripcion del evento es Obligatorio</ion-text>
+            </div>
 
-          <!--  ********* FECHA DEL EVENTO ********* -->
-          <ion-item class="custom-input">
-            <ion-label position="floating">Fecha Evento</ion-label>
-            <ion-input formControlName="fecha" type="date"></ion-input>
-          </ion-item>
-          <div
-            *ngIf="eventosForm.get('fecha')?.hasError('required') && eventosForm.get('fecha')?.touched">
-            <ion-text class="error-ms" color="danger">La fecha es Obligatoria</ion-text>
-          </div>
+            <!--  ********* FECHA DEL EVENTO ********* -->
+            <ion-item class="custom-input">
+              <ion-label position="floating">Fecha Evento</ion-label>
+              <ion-input formControlName="fecha" type="date"></ion-input>
+            </ion-item>
+            <div *ngIf="eventosForm.get('fecha')?.hasError('required') && eventosForm.get('fecha')?.touched">
+              <ion-text class="error-ms" color="danger">La fecha es Obligatoria</ion-text>
+            </div>
 
-             <!--  ********* COSTO DEL EVENTO ********* -->
-             <ion-item class="custom-input">
+            <!--  ********* COSTO DEL EVENTO ********* -->
+            <ion-item class="custom-input">
               <ion-label position="floating">Costo Evento</ion-label>
               <ion-input formControlName="costo" type="number"></ion-input>
             </ion-item>
-            <div
-              *ngIf="eventosForm.get('costo')?.hasError('required') && eventosForm.get('costo')?.touched">
+            <div *ngIf="eventosForm.get('costo')?.hasError('required') && eventosForm.get('costo')?.touched">
               <ion-text class="error-ms" color="danger">El costo del evento es Obligatorio</ion-text>
             </div>
 
-          <ion-button class="boton-evento" color="boton" expand="full"
-            type="submit" >Guardar Evento</ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+            <ion-button class="boton-registro" color="boton" expand="full" type="submit">Guardar Evento</ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
 
-  <!-- <ion-footer [translucent]="true" class="custom-footer">
+<!-- <ion-footer [translucent]="true" class="custom-footer">
     <ion-toolbar color="footer">
       <ion-grid>
         <ion-row class="ion-justify-content-center">
@@ -88,4 +74,3 @@
       </ion-grid>
     </ion-toolbar>
   </ion-footer> -->
-

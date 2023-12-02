@@ -51,5 +51,16 @@ ion-button.boton-registro {
   color: danger;
 }
 
+.content-container {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+.ion-content {
+  margin-bottom: 100px;  
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 

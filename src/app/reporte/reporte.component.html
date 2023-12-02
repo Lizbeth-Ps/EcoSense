@@ -1,56 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Formulario y Galería de Fotos</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  <div class="custom-form">
+<ion-content class="ion-content" color="title">
+  <div class="content-container">
+    <img src="assets/img/crearReporte.png" alt="">
     <ion-card>
-      <ion-card-header> Formulario </ion-card-header>
       <ion-card-content>
         <!-- Campos del formulario -->
-        <div class="input-field">
+        <ion-item class="custom-input">
           <ion-label>Título</ion-label>
-          <ion-input
-            [(ngModel)]="formData.titulo"
-            name="titulo"
-            placeholder="Ingresa el título"
-          ></ion-input>
-        </div>
-        <div class="input-field">
+          <ion-input [(ngModel)]="formData.titulo" name="titulo"></ion-input>
+        </ion-item>
+        <ion-item class="custom-input">
           <ion-label>Lugar</ion-label>
-          <ion-input
-            [(ngModel)]="formData.lugar"
-            name="lugar"
-            placeholder="Ingresa el lugar"
-          ></ion-input>
-        </div>
-        <div class="input-field">
+          <ion-input [(ngModel)]="formData.lugar" name="lugar" ></ion-input>
+        </ion-item>
+        <ion-item class="custom-input">
           <ion-label>Descripción</ion-label>
-          <ion-textarea
-            [(ngModel)]="formData.descripcion"
-            name="descripcion"
-            placeholder="Ingresa la descripción"
-          ></ion-textarea>
-        </div>
+          <ion-textarea [(ngModel)]="formData.descripcion" name="descripcion"
+            ></ion-textarea>
+        </ion-item>
 
-        <div class="input-field">
+        <ion-item class="custom-input"> 
           <ion-label>Capturar Imagen</ion-label>
           <ion-input type="img" (click)="addPhotoToGallery()">
-            <ion-fab-button>
-              <ion-icon name="camera"></ion-icon>
+            <ion-fab-button class="boton-registro" color="boton">
+              <ion-icon name="camera" ></ion-icon>
             </ion-fab-button>
           </ion-input>
-        </div>
-
-        <!--1div >
-          <ng-container  *ngFor="let photo of photoService.photos; index as position">
-            <ion-card>
-              <img [src]="photo.webviewPath" alt="Imagen">
-            </ion-card>
-          </ng-container>
-        </div-->
+        </ion-item>
 
         <div>
           <ng-container *ngFor="let imagenUrl of fotos">
@@ -59,40 +34,14 @@
             </ion-card>
           </ng-container>
         </div>
-        
 
-        <!-- Agrega más campos según sea necesario -->
+        <ion-button class="boton-registro" color="boton" expand="full" (click)="ubicacionUsuario()">Crear Mapa</ion-button>
 
-        <!-- Botones del formulario -->
-        <ion-button
-          class="custom-button"
-          expand="full"
-          (click)="ubicacionUsuario()"
-          >Crear Mapa</ion-button
-        >
-
-       
-
-        <!--div *ngIf="mapa" class="map-container">
-          <ion-content>
-            <capacitor-google-maps class="map" #map></capacitor-google-maps>
-          </ion-content>
-        </div-->
         <br />
 
-        <ion-button expand="full" (click)="guardar()">Guardar</ion-button>
+        <ion-button expand="full" class="boton-registro" color="boton" expand="full" (click)="guardar()">Guardar</ion-button>
       </ion-card-content>
     </ion-card>
-
-    <!-- Galería de fotos >
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-          <ion-img [src]="photo.webviewPath"></ion-img>
-        </ion-col>
-      </ion-row>
-    </ion-grid-->
-
     <!-- Botón para tomar fotos -->
   </div>
 

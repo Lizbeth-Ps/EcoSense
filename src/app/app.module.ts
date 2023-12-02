@@ -14,16 +14,19 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { ReportesComponent } from './reportes/reportes.component';
 import { CommunicationService } from './services/comunication.service';
+import { DonacionesPageModule } from './donaciones/donaciones.module';
+import { EventosComponent } from './eventos/eventos.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ReportesComponent],
+  declarations: [AppComponent, ReportesComponent, EventosComponent],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     AngularFireModule.initializeApp(environment.fIREBASE_CONFIG),
     AppRoutingModule, 
     RegistroPageModule,
+    DonacionesPageModule,
     HttpClientModule,
     
     

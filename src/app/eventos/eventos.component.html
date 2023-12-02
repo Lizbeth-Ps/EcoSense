@@ -1,0 +1,17 @@
+<ion-content class="ion-content" color="title">
+  <div class="content-container">
+    <img src="assets/img/eventos.png" alt="">
+    <ion-card *ngFor="let evento of eventos">
+
+      <ion-card-header>
+        <ion-card-title>{{evento.nombreEvento}}</ion-card-title>
+        <!--<ion-card-subtitle>Lugar:{{evento.lugar}}</ion-card-subtitle>-->
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{evento.descripcion}}</p>
+        <b>Costo: ${{evento.costo}}</b>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

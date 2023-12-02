@@ -1,23 +1,26 @@
+<ion-content class="ion-content" color="title">
+  <div class="content-container">
+    <img src="assets/img/reportes.png" alt="">
+    <ion-card *ngFor="let reporte of reportes">
 
-  <ion-card *ngFor="let reporte of reportes">
-      
-  <ion-card-header>
-    <ion-card-title>{{reporte.titulo}}</ion-card-title>
-    <ion-card-subtitle>Lugar: {{reporte.lugar}}</ion-card-subtitle>
-  </ion-card-header>
+      <ion-card-header>
+        <ion-card-title>{{reporte.titulo}}</ion-card-title>
+        <ion-card-subtitle>Lugar:{{reporte.lugar}}</ion-card-subtitle>
+      </ion-card-header>
 
-  <ion-card-content>
-    <p>{{reporte.descripcion}}</p>
-    <ng-container *ngFor="let imagenUrl of reporte.imagenes">
-      <ion-card>
-        <img [src]="imagenUrl" alt="Imagen">
-      </ion-card>
-    </ng-container>
-    <!-- <div class="map-container">
+      <ion-card-content>
+        <p>{{reporte.descripcion}}</p>
+        <ng-container *ngFor="let imagenUrl of reporte.imagenes">
+          <ion-card>
+            <img [src]="imagenUrl" alt="Imagen">
+          </ion-card>
+        </ng-container>
+        <!-- <div class="map-container">
       <capacitor-google-maps class="map" #map></capacitor-google-maps>
     </div> -->
-    <ion-button class="boton-registro" color="boton" expand="full" (click)="onReportClick(reporte.idReporte)">Ver seguimiento</ion-button>
-  </ion-card-content>
-</ion-card>
-
-
+        <ion-button class="boton-registro" color="boton" expand="full" (click)="onReportClick(reporte.idReporte)">Ver
+          seguimiento</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

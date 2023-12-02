@@ -5,17 +5,25 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-row class="apartados"> 
+    <ion-row class="apartados" *ngIf="!isAdministrador()"> 
       <ion-icon name="document-text-outline"></ion-icon>
-      <a href="">Donar</a>
+      <a href="donar">Donar</a>
     </ion-row>
     <ion-row class="apartados"> 
       <ion-icon name="document-text-outline"></ion-icon>
-      <a href="">Reportes</a>
+      <a href="reportes">Reportes</a>
     </ion-row>
     <ion-row class="apartados">
       <ion-icon name="calendar-outline"></ion-icon>
-      <a href="">Eventos</a>
+      <a href="eventos">Eventos</a>
+    </ion-row>
+    <ion-row class="apartados" *ngIf="isAdministrador()">
+      <ion-icon name="add"></ion-icon>
+      <a href="crearEvento">Crear evento</a>
+    </ion-row>
+    <ion-row class="apartados" *ngIf="!isAdministrador()">
+      <ion-icon name="add"></ion-icon>
+      <a href="crearReporte">Crear reporte</a>
     </ion-row>
 
   </ion-content>
@@ -33,7 +41,7 @@
           <!--<img src="assets/img/logo_2.png" alt="">-->
         </ion-col>
         <ion-col size="6" *ngIf="isOn" >
-          <ion-icon  class="derecha" name="log-out-outline" size="large" [routerLink]="['/login']"  (click)="logOut()"></ion-icon>
+          <ion-icon  class="derecha" name="log-out-outline" size="medium" [routerLink]="['/login']" (click)="logOut()"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-toolbar>

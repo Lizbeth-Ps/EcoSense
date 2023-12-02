@@ -69,15 +69,23 @@ ion-content.color-title {
   min-height: 100vh;
 }
 
-.content-container {
-  flex: 1;
-  padding: 20px;
-  box-sizing: border-box;
+// .content-container {
+//   flex: 1;
+//   padding: 20px;
+//   box-sizing: border-box;
+// }
+
+// .ion-content {
+//   margin-bottom: 100px;  /* Ajusta esta altura según la altura de tu footer */
+//   flex: 1;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+ion-input{
+  text-align: left;
 }
 
-.ion-content {
-  margin-bottom: 100px;  /* Ajusta esta altura según la altura de tu footer */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+ion-label{
+  text-align: left;
 }

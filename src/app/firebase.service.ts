@@ -40,6 +40,10 @@ export class FirebaseService {
     return this.firestore.collection('reporte').valueChanges();
   }
 
+  getEventos(): Observable<any[]> {
+    return this.firestore.collection('evento').valueChanges();
+  }
+
   getComentarios(idReporte: string) {
     return this.firestore.collection('comentarios', ref => ref.where('idReporte', '==', idReporte)).valueChanges();
   }
