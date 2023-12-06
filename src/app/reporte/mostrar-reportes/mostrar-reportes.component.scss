@@ -15,6 +15,16 @@ ion-button {
     color: #FFFFFF; 
     font-weight: bold; 
 }
+//Carrusel
+swiper-container{
+    height: 200px;
+}
+swiper-slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 // .content-container {
 //     flex: 1;
