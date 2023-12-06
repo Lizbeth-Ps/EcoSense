@@ -49,9 +49,9 @@
   </div>
 </ion-content> -->
 
-<img src="assets/img/donar.png" alt="">
+<!-- <img src="assets/img/donar.png" alt="">
 <ion-content>
-  <ion-grid class="ion-text-center">
+  <ion-grid class="center-content">
   </ion-grid>
   <ion-card class="welcome-card">
     <ion-segment [(ngModel)]="selectedAmount">
@@ -72,4 +72,34 @@
       <div id="paypal-button-container"></div>
     </ion-card-content>
   </ion-card>
+</ion-content> -->
+
+<ion-content class="center-content">
+  <div class="content-container">
+    <img src="assets/img/donar.png" alt="" class="logo-image">
+
+    <ion-grid class="ion-text-center">
+      <ion-card class="welcome-card">
+        <ion-segment [(ngModel)]="selectedAmount">
+          <ion-segment-button value="amount1">
+            $100
+          </ion-segment-button>
+          <ion-segment-button value="amount2">
+            $200
+          </ion-segment-button>
+          <ion-segment-button value="amount3">
+            $500
+          </ion-segment-button>
+          <ion-segment-button value="customAmount">
+            Otra
+          </ion-segment-button>
+        </ion-segment>
+        <ion-card-content>
+          <div id="paypal-button-container"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-grid>
+  </div>
 </ion-content>
+
+
