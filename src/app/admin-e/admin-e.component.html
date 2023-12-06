@@ -28,6 +28,7 @@
             <!--  ********* FECHA DEL EVENTO ********* -->
             <ion-item class="custom-input">
               <ion-label position="floating">Fecha Evento</ion-label>
+              <br>
               <ion-input formControlName="fecha" type="date"></ion-input>
             </ion-item>
             <div *ngIf="eventosForm.get('fecha')?.hasError('required') && eventosForm.get('fecha')?.touched">
@@ -37,11 +38,27 @@
             <!--  ********* COSTO DEL EVENTO ********* -->
             <ion-item class="custom-input">
               <ion-label position="floating">Costo Evento</ion-label>
-              <ion-input formControlName="costo" type="number"></ion-input>
+              <br>
+              <ion-input formControlName="costo" type="number">$</ion-input>
             </ion-item>
             <div *ngIf="eventosForm.get('costo')?.hasError('required') && eventosForm.get('costo')?.touched">
               <ion-text class="error-ms" color="danger">El costo del evento es Obligatorio</ion-text>
             </div>
+             <!--  ********* LUGAR DEL EVENTO ********* -->
+             <ion-item class="custom-input">
+              <ion-label position="floating">Lugar Evento</ion-label>
+              <ion-input formControlName="lugar" type="text"></ion-input>
+            </ion-item>
+            <div
+              *ngIf="eventosForm.get('lugar')?.hasError('required') && eventosForm.get('lugar')?.touched">
+              <ion-text class="error-ms" color="danger">El lugar del evento es Obligatorio</ion-text>
+            </div>
+
+            <ion-item class="custom-input">
+              <ion-label position="floating" style="text-align: center;">NOTA</ion-label>
+              <br>
+              <ion-input type="text" style="text-align: center;"> Todos los Eventos se pagan el mismo dia del evento y en el lugar</ion-input>
+            </ion-item>
 
             <ion-button class="boton-registro" color="boton" expand="full" type="submit">Guardar Evento</ion-button>
           </form>

@@ -26,6 +26,7 @@ export class AdminEComponent  implements OnInit {
       descripcion: ['', Validators.required],
       fecha: ['', Validators.required],
       costo: ['', Validators.required],
+      lugar: ['', Validators.required],
     })
   }
 
@@ -47,12 +48,13 @@ export class AdminEComponent  implements OnInit {
           descripcion: formData.descripcion,
           fecha: formData.fecha,
           costo: formData.costo,
+          lugar: formData.lugar,
         };
 
 
         await this.firebaseService.registrarEvento(evento);
 
-        this.navCtrl.navigateRoot("home");
+        this.navCtrl.navigateRoot("eventos");
       } catch (error: any) {
         let errorMessage = error.message || "Error al guardar el Evento";
         this.showToast(errorMessage);
