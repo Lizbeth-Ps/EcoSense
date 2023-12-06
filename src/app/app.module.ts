@@ -16,11 +16,12 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { CommunicationService } from './services/comunication.service';
 import { DonacionesPageModule } from './donaciones/donaciones.module';
 import { EventosComponent } from './eventos/eventos.component';
+import { ReportesUsuarioComponent } from './reporte/reportes-usuario/reportes-usuario.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ReportesComponent, EventosComponent],
+  declarations: [AppComponent, ReportesComponent, EventosComponent, ReportesUsuarioComponent],
   imports: [BrowserModule, 
     IonicModule.forRoot(), 
     AngularFireModule.initializeApp(environment.fIREBASE_CONFIG),

@@ -4,6 +4,7 @@ import { MostrarReportesComponent } from './reporte/mostrar-reportes/mostrar-rep
 import { SeguimientoComponent } from './reporte/seguimiento/seguimiento.component';
 import { DonacionesPage } from './donaciones/donaciones.page';
 import { EventosComponent } from './eventos/eventos.component';
+import { ReportesUsuarioComponent } from './reporte/reportes-usuario/reportes-usuario.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
   {
     path: '',
 
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
     path: 'eventos',
     component: EventosComponent
   }, 
+  {
+    path: 'reportes/misReportes',
+    component: ReportesUsuarioComponent
+  },
   {
     path: 'crearReporte',
     loadChildren: () => import('./reporte/reporte.module').then( m => m.RegistroPageModule)

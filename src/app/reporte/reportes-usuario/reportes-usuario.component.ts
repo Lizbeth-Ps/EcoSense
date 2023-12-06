@@ -1,36 +1,35 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/firebase.service';
-import { CommunicationService } from 'src/app/services/comunication.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-mostrar-reportes',
-  templateUrl: './mostrar-reportes.component.html',
-  styleUrls: ['./mostrar-reportes.component.scss'],
+  selector: 'app-reportes-usuario',
+  templateUrl: './reportes-usuario.component.html',
+  styleUrls: ['./reportes-usuario.component.scss'],
 })
-export class MostrarReportesComponent implements OnInit {
+export class ReportesUsuarioComponent  implements OnInit {
+
   reportes: any[] = [];
   email: any;
 
   constructor(
     private firebaseService: FirebaseService,
     private router: Router,
-    private communicationService: CommunicationService,
   ) {
     this.email = localStorage.getItem('email');
   }
 
   ngOnInit() {
-    this.reportesTodos();
+    this.reportesUsuario();
   }
 
   @Output() reporteSeleccionado = new EventEmitter<string>();
 
-  reportesTodos(): void {
-    this.firebaseService.getItems().subscribe((data) => {
-      this.reportes = data.filter(item => item.estatus === 1);
-      
-    });
+  reportesUsuario(): void {
+    this.firebaseService.getItems()
+      .subscribe((data) => {
+        this.reportes = data.filter(item => item.emailCreador === this.email);
+      });
   }
 
   onReportClick(reportId: string) {
@@ -38,7 +37,5 @@ export class MostrarReportesComponent implements OnInit {
     console.log('Botón presionado');
      console.log(reportId);
   }
-
-
 
 }

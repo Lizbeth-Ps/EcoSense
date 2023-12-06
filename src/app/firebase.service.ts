@@ -71,6 +71,22 @@ export class FirebaseService {
     });
   }
 
+  reportesPorUsuario(email: string): Promise<void | any[]> {
+    const reporteRef = this.firestore.collection('reporte', ref => ref.where('emailCreador', '==', email));
+  
+    return reporteRef.get().toPromise().then((querySnapshot) => {
+      if (querySnapshot !== undefined && querySnapshot.size > 0) {
+        const docId = querySnapshot.docs[0].id;
+        // Puedes devolver el valor directamente si es lo que necesitas
+        return this.firestore.collection('reporte').valueChanges().toPromise();
+      } else {
+        console.error('No existen registros');
+        throw new Error('Documento no encontrado');
+      }
+    });
+  }
+  
+
 
 
   getReporte(id: string): Observable<any> {

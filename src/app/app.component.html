@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content>
     <ion-row class="apartados" *ngIf="!isAdministrador()"> 
-      <ion-icon name="document-text-outline"></ion-icon>
+      <ion-icon name="cash"></ion-icon>
       <a href="donar">Donar</a>
     </ion-row>
     <ion-row class="apartados"> 
@@ -24,6 +24,10 @@
     <ion-row class="apartados" *ngIf="!isAdministrador()">
       <ion-icon name="add"></ion-icon>
       <a href="crearReporte">Crear reporte</a>
+    </ion-row>
+    <ion-row class="apartados"> 
+      <ion-icon name="document"></ion-icon>
+      <a href="reportes/misReportes">Mis reportes</a>
     </ion-row>
 
   </ion-content>
