@@ -32,15 +32,6 @@ export class DonacionesPage {
 //   }
 // }
 
-
-
-
-
-
-
-
-
-
   paymentAmount: string = '3.33';
   currency: string = 'INR';
   currencyIcon: string = '$';

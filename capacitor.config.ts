@@ -1,9 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
-import { exhaustAll } from 'rxjs';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'codeology',
+  appId: 'com.utng.ecosense',
+  appName: 'Ecosense',
   webDir: 'www',
   server: {
     androidScheme: 'https'
@@ -11,7 +10,3 @@ const config: CapacitorConfig = {
 };
 
 export default config;
-
-
-
-   
