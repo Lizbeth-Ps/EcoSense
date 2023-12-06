@@ -35,6 +35,14 @@
           </ng-container>
         </div>
 
+        <div  class="imagenAll">
+          <ng-container  *ngFor="let photo of fotosCelular" class="imagenAll">
+            <ion-card>
+              <img [src]="photo" alt="Imagen">
+            </ion-card>
+          </ng-container>
+        </div>
+
         <ion-button class="boton-registro" color="boton" expand="full" (click)="ubicacionUsuario()">Crear Mapa</ion-button>
 
         <br />
@@ -45,7 +53,7 @@
     <!-- Botón para tomar fotos -->
   </div>
 
-  <div class="map-container">
+  <div *ngIf="mapa" class="map-container">
     <capacitor-google-maps class="map" #map></capacitor-google-maps>
   </div>
 </ion-content>
